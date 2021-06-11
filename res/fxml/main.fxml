@@ -25,7 +25,7 @@
           </Menu>
             <Menu mnemonicParsing="false" text="Items">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#openWeapons" text="Weapons and Armors" />
+                  <MenuItem mnemonicParsing="false" onAction="#openItems" text="Weapons and Armors" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Classes">
