@@ -1,8 +1,9 @@
 package io.github.anemone.anima.gui;
 
+import io.github.anemone.anima.gui.controller.MainController;
+import io.github.anemone.anima.model.Wiki;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -10,10 +11,14 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
-        primaryStage.setTitle("Ragnarok wiki database");
-        primaryStage.setScene(new Scene(root,1280, 720));
+        Wiki wiki = new Wiki();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
+        loader.setController(new MainController(wiki));
+        primaryStage.setTitle("Ragnarok database - wiki");
+        primaryStage.setScene(new Scene(loader.load()));
         primaryStage.setResizable(false);
+        primaryStage.sizeToScene();
+        //primaryStage.getIcons().add(new Image("file:resources/icon.png"));
         primaryStage.show();
     }
 
