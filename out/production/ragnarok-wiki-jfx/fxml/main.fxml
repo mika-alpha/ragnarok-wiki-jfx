@@ -31,10 +31,7 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Classes">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#openFirstJobs" text="1st Job" />
-                  <MenuItem mnemonicParsing="false" onAction="#openSecondJobs" text="2nd Job" />
-                  <MenuItem mnemonicParsing="false" onAction="#openThirdJobs" text="3rd Job" />
-                  <MenuItem mnemonicParsing="false" onAction="#openFourthJobs" text="4th Job" />
+                  <MenuItem mnemonicParsing="false" onAction="#openJobs" text="See Jobs" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Skills">

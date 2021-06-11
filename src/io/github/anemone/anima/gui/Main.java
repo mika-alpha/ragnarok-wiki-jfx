@@ -12,12 +12,15 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Wiki wiki = new Wiki();
+        wiki.loadData();
+        wiki.loadJobs();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
         loader.setController(new MainController(wiki));
         primaryStage.setTitle("Ragnarok database - wiki");
         primaryStage.setScene(new Scene(loader.load()));
         primaryStage.setResizable(false);
         primaryStage.sizeToScene();
+        primaryStage.setOnCloseRequest(event -> wiki.saveData());
         //primaryStage.getIcons().add(new Image("file:resources/icon.png"));
         primaryStage.show();
     }

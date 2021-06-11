@@ -1,6 +1,8 @@
 package io.github.anemone.anima.model;
 
-public class Skill {
+import java.io.Serializable;
+
+public class Skill implements Serializable {
 
     private String name;
     private String desc;
@@ -10,6 +12,7 @@ public class Skill {
     private String imgPath;
     private Skill next;
     private Skill previous;
+    public final static long serialVersionUID = 1;
 
     public Skill(String name, String desc, String type, String job, int level, String imgPath) {
         this.name = name;

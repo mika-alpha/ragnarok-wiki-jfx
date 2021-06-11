@@ -1,6 +1,8 @@
 package io.github.anemone.anima.model;
 
-public class Job {
+import java.io.Serializable;
+
+public class Job implements Serializable {
 
     private String name;
     private String job;
@@ -10,6 +12,8 @@ public class Job {
     private Job next;
     private Job previous;
     private String imgPath;
+    public final static long serialVersionUID = 1;
+
 
 
     public Job(String name, String job, int baseLevel, int jobLevel, String speciality, String imgPath) {

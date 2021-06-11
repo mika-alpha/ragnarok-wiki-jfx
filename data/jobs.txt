@@ -1,0 +1,5 @@
+Alchemist|Merchant|70|50|Utility|assets/classes/alchemist.jpg
+Assasin|Thief|70|50|Damage|assets/classes/assasin.jpg
+High Wizard|Wizard|99|70|Utility|assets/classes/alchemist.jpg
+Sniper|Hunter|99|70|Damage|assets/classes/sniper.jpg
+Royal Guard|Paladin|120|70|Utility|assets/classes/royalguard.png

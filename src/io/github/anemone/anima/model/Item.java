@@ -1,6 +1,8 @@
 package io.github.anemone.anima.model;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable {
 
     private String name;
     private int id;
@@ -11,6 +13,7 @@ public class Item {
     private Item left;
     private Item right;
 
+    public final static long serialVersionUID = 1;
     public Item(String name, int id, String type, String element, String droppedBy, String imgPath) {
         this.name = name;
         this.id = id;

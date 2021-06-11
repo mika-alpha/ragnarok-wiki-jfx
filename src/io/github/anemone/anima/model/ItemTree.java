@@ -1,8 +1,12 @@
 package io.github.anemone.anima.model;
 
-public class ItemTree {
+import java.io.Serializable;
+
+public class ItemTree implements Serializable {
 
     private Item root;
+    public final static long serialVersionUID = 1;
+
 
 
     public ItemTree(){

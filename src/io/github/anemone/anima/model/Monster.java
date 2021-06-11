@@ -1,6 +1,8 @@
 package io.github.anemone.anima.model;
 
-public class Monster {
+import java.io.Serializable;
+
+public class Monster implements Serializable {
 
     private String name;
     private String race;
@@ -9,6 +11,7 @@ public class Monster {
     private int id;
     private int level;
     private String size;
+    public final static long serialVersionUID = 1;
 
     public Monster(String name, String race, String property, int hp, int id, int level, String size) {
         this.name = name;

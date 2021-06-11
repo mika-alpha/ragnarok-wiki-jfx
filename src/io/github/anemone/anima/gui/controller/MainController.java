@@ -91,13 +91,8 @@ public class MainController {
     }
 
     @FXML
-    void openFirstJobs(ActionEvent event) {
+    void openJobs(ActionEvent event) {
 
-
-    }
-
-    @FXML
-    void openFourthJobs(ActionEvent event) {
 
     }
 
@@ -157,16 +152,6 @@ public class MainController {
         catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @FXML
-    void openSecondJobs(ActionEvent event) {
-
-    }
-
-    @FXML
-    void openThirdJobs(ActionEvent event) {
-
     }
 
     @FXML
