@@ -31,4 +31,20 @@ public class Monster {
     public int getLevel() {
         return level;
     }
+
+    public String getRace() {
+        return race;
+    }
+
+    public String getProperty() {
+        return property;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public String getSize() {
+        return size;
+    }
 }

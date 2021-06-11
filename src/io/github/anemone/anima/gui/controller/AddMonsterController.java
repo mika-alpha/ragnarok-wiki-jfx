@@ -1,11 +1,13 @@
 package io.github.anemone.anima.gui.controller;
 
 
+import io.github.anemone.anima.exception.InvalidInputException;
+import io.github.anemone.anima.model.Monster;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+
+import java.util.ArrayList;
 
 
 public class AddMonsterController {
@@ -30,8 +32,11 @@ public class AddMonsterController {
     @FXML
     private ComboBox<String> sizeBox;
 
+    private ArrayList<Monster> monsters;
 
-    public AddMonsterController(){
+
+    public AddMonsterController(ArrayList<Monster> monsters){
+        this.monsters = monsters;
     }
 
     @FXML
@@ -61,6 +66,34 @@ public class AddMonsterController {
 
     @FXML
     public void addMonster(ActionEvent event) {
+        try{
+            if (nameField.getText().isEmpty() || idField.getText().isEmpty() || levelField.getText().isEmpty() || hpField.getText().isEmpty()){
+                throw new InvalidInputException();
+            } else if (sizeBox.getSelectionModel().isEmpty() || propertyBox.getSelectionModel().isEmpty() || raceBox.getSelectionModel().isEmpty()){
+                throw new InvalidInputException();
+            }
+            else {
+                monsters.add(new Monster(nameField.getText(),raceBox.getValue(),propertyBox.getValue(),
+                        Integer.parseInt(hpField.getText()),
+                        Integer.parseInt(idField.getText()),
+                        Integer.parseInt(levelField.getText()),
+                        sizeBox.getValue()));
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText("Success");
+                alert.setContentText("The new monster was added succesfully into the wiki");
+                alert.showAndWait();
+                nameField.getScene().getWindow().hide();
+            }
+        } catch (InvalidInputException iie){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Empty spaces");
+            alert.setContentText("You must fill all the fields");
+            alert.show();
+        } catch (NumberFormatException nfe){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Invalid input");
+            alert.setContentText("Make sure that the level, id and hp are numerical values and try again");
+            alert.show();
+        }
     }
-
 }

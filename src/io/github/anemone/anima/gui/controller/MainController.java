@@ -43,7 +43,7 @@ public class MainController {
     void openAddMonster(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addMonster.fxml"));
-            loader.setController(new AddMonsterController());
+            loader.setController(new AddMonsterController(wiki.getMonsters()));
             Stage stage = new Stage();
             stage.setTitle("Add monster");
             stage.setScene(new Scene(loader.load(),600,800));
@@ -86,7 +86,7 @@ public class MainController {
     void openListMonsters(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/listMonsters.fxml"));
-            loader.setController(new ListMonstersController());
+            loader.setController(new ListMonstersController(wiki));
             Stage stage = new Stage();
             stage.setTitle("Listed monsters");
             stage.setScene(new Scene(loader.load(),1280,720));
