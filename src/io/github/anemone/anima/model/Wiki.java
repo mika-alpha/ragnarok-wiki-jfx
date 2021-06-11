@@ -1,5 +1,7 @@
 package io.github.anemone.anima.model;
 
+import io.github.anemone.anima.exception.FileAccessException;
+import io.github.anemone.anima.thread.FilesThread;
 import java.util.ArrayList;
 
 public class Wiki {
@@ -9,6 +11,7 @@ public class Wiki {
     private Job firstJob;
     private ItemTree weapons;
     private ItemTree armors;
+    private boolean success;
 
     public Wiki() {
         monsters = new ArrayList<>();
@@ -52,6 +55,24 @@ public class Wiki {
         System.out.println(monsters.toString());
     }
 
+    public void exportMonsters(String filepath) throws FileAccessException, InterruptedException {
+        FilesThread exp = new FilesThread(true,this,filepath);
+        exp.start();
+        exp.join();
+        if (!success){
+            throw new FileAccessException();
+        }
+    }
+
+    public void importMonsters(String filepath) throws FileAccessException, InterruptedException{
+        FilesThread imp = new FilesThread(false,this,filepath);
+        imp.start();
+        imp.join();
+        if (!success){
+            throw new FileAccessException();
+        }
+    }
+
 
     public ArrayList<Monster> getMonsters() {
         return monsters;
@@ -79,5 +100,9 @@ public class Wiki {
 
     public void setFirstJob(Job firstJob) {
         this.firstJob = firstJob;
+    }
+
+    public void setSuccess(boolean value){
+        this.success = value;
     }
 }

@@ -1,14 +1,18 @@
 package io.github.anemone.anima.gui.controller;
 
+import io.github.anemone.anima.exception.FileAccessException;
 import io.github.anemone.anima.model.Wiki;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class MainController {
@@ -24,19 +28,50 @@ public class MainController {
 
     private Wiki wiki;
 
+    private FileChooser fileChooser;
+
+    private Alert alert;
+
 
     public MainController(Wiki wiki){
         this.wiki = wiki;
+        alert = new Alert(null);
+        fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Plain text files", "*.txt", "*.csv"),
+                new FileChooser.ExtensionFilter("TXT", "*.txt"),
+                new FileChooser.ExtensionFilter("CSV", "*.csv"));
     }
 
     @FXML
     void exportMonsters(ActionEvent event) {
+        File file = fileChooser.showSaveDialog(circleOne.getScene().getWindow());
+        fileChooser.setTitle("Select the directory or file where the data will be saved");
+        if (file != null) {
+            try {
+                wiki.exportMonsters(file.toString());
+                showAlert("Success", Alert.AlertType.INFORMATION, "The data has been exported successfully");
+            } catch (FileAccessException | InterruptedException fi){
+                showAlert("Data Error", Alert.AlertType.ERROR, "There was an unexpected error trying to export the data into the specified file");
+                fi.printStackTrace();
+            }
+        }
 
     }
 
     @FXML
     void importMonsters(ActionEvent event) {
-
+        File file = fileChooser.showOpenDialog(circleOne.getScene().getWindow());
+        fileChooser.setTitle("Select the file that you want to import");
+        if (file != null) {
+            try {
+                wiki.importMonsters(file.toString());
+                showAlert("Success", Alert.AlertType.INFORMATION, "The data has been imported successfully");
+            } catch (FileAccessException | InterruptedException fi){
+                showAlert("Data Error", Alert.AlertType.ERROR, "There was an unexpected error trying to import the data from the specified file");
+                fi.printStackTrace();
+            }
+        }
     }
 
     @FXML
@@ -157,5 +192,12 @@ public class MainController {
 
     }
 
+    public void showAlert(String title, Alert.AlertType type, String content){
+        alert.setAlertType(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
 
 }
