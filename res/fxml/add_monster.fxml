@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="CENTER" prefHeight="800.0" prefWidth="600.0">
+         <children>
+            <Pane>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="200.0" />
+               </VBox.margin>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a19959" height="43.0" stroke="BLACK" strokeType="INSIDE" width="190.0" />
+                  <Label alignment="CENTER" layoutX="-3.0" prefHeight="36.0" prefWidth="190.0" text="ADD MONSTER">
+                     <font>
+                        <Font name="MS Gothic" size="34.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Name:  ">
+                     <font>
+                        <Font name="MS Gothic" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="nameField">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="ID: ">
+                           <font>
+                              <Font name="MS Gothic" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="idField" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Level:  ">
+                     <font>
+                        <Font name="MS Gothic" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="levelField" />
+               </children>
+            </HBox>
+            <HBox fx:id="raceBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Race:  ">
+                     <font>
+                        <Font name="MS Gothic" size="15.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="raceBox" prefWidth="150.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Property:  ">
+                     <font>
+                        <Font name="MS Gothic" size="15.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="propertyBox" prefWidth="150.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Size:   ">
+                     <font>
+                        <Font name="MS Gothic" size="15.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="sizeBox" prefWidth="150.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="HP:  ">
+                     <font>
+                        <Font name="MS Gothic" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="hpField" />
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" onAction="#addMonster" text="ADD">
+               <font>
+                  <Font name="MS Gothic" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</Pane>
