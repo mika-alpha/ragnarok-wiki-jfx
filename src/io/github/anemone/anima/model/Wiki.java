@@ -7,5 +7,7 @@ public class Wiki {
     private ArrayList<Monster> monsters;
     private Skill firstSkill;
     private Job firstJob;
+    private ItemTree weapons;
+    private ItemTree armors;
 
 }
