@@ -25,8 +25,7 @@
           </Menu>
             <Menu mnemonicParsing="false" text="Items">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#openWeapons" text="Weapons" />
-                  <MenuItem mnemonicParsing="false" onAction="#openArmors" text="Arnor" />
+                  <MenuItem mnemonicParsing="false" onAction="#openWeapons" text="Weapons and Armors" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Classes">
@@ -42,6 +41,11 @@
                   <MenuItem mnemonicParsing="false" onAction="#openMagicSkills" text="Magic Damage" />
                   <MenuItem mnemonicParsing="false" onAction="#openPhysicalSkills" text="Physical Damage" />
                   <MenuItem mnemonicParsing="false" onAction="#openUtilitySkills" text="Utility" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="BGM">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#openMagicSkills" text="Play" />
                </items>
             </Menu>
         </menus>
