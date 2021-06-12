@@ -27,11 +27,9 @@ public class BGMController {
     private Slider volumeSlider;
 
     private BGMThread musicPlayer;
-    private Wiki wiki;
     private Song current;
 
     public BGMController(Wiki wiki){
-        this.wiki = wiki;
         musicPlayer = new BGMThread(wiki.getFirstSong().getSongPath());
         current = wiki.getFirstSong();
     }
@@ -49,8 +47,7 @@ public class BGMController {
                     musicPlayer.updateVolume(volumeSlider.getValue() / 100);
                 }
             });
-        } catch (NullPointerException | InterruptedException ignore){
-        }
+        } catch (NullPointerException | InterruptedException ignore){}
     }
 
     @FXML

@@ -2,6 +2,7 @@ package io.github.anemone.anima.gui.controller;
 
 import io.github.anemone.anima.exception.FileAccessException;
 import io.github.anemone.anima.model.Wiki;
+import io.github.anemone.anima.thread.GraphicsThread;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -12,7 +13,6 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 
 import java.io.File;
@@ -35,6 +35,8 @@ public class MainController {
 
     private Alert alert;
 
+    private GraphicsThread gfx;
+
 
     public MainController(Wiki wiki){
         this.wiki = wiki;
@@ -44,6 +46,12 @@ public class MainController {
                 new FileChooser.ExtensionFilter("Plain text files", "*.txt", "*.csv"),
                 new FileChooser.ExtensionFilter("TXT", "*.txt"),
                 new FileChooser.ExtensionFilter("CSV", "*.csv"));
+    }
+
+    @FXML
+    public void initialize(){
+        gfx = new GraphicsThread(circleOne,circleTwo,rectangle);
+        gfx.start();
     }
 
     @FXML
