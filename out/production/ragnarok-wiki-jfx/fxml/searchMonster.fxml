@@ -20,21 +20,6 @@
             </Label>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Search by name:  ">
-                     <font>
-                        <Font name="MS Gothic" size="20.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="nameField" promptText="ex: banshee">
-                     <HBox.margin>
-                        <Insets left="10.0" right="20.0" />
-                     </HBox.margin>
-                  </TextField>
-                  <Button mnemonicParsing="false" onAction="#searchByName" text="Search" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
                   <Label text="Search by ID:  ">
                      <font>
                         <Font name="MS Gothic" size="20.0" />

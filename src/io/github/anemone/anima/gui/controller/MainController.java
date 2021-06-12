@@ -92,15 +92,25 @@ public class MainController {
 
     @FXML
     void openJobs(ActionEvent event) {
-
-
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/bgm.fxml"));
+            loader.setController(new BGMController());
+            Stage stage = new Stage();
+            stage.setTitle("Search Monster");
+            stage.setScene(new Scene(loader.load(),1280,720));
+            stage.setResizable(false);
+            stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void openItems(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/items.fxml"));
-            loader.setController(new ItemsController());
+            loader.setController(new ItemsController(wiki));
             Stage stage = new Stage();
             stage.setTitle("Items");
             stage.setScene(new Scene(loader.load(),1280,720));
@@ -142,7 +152,7 @@ public class MainController {
     void openSearchMonster(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/searchMonster.fxml"));
-            loader.setController(new SearchMonsterController());
+            loader.setController(new SearchMonsterController(wiki));
             Stage stage = new Stage();
             stage.setTitle("Search Monster");
             stage.setScene(new Scene(loader.load(),1280,720));
@@ -161,7 +171,6 @@ public class MainController {
 
     @FXML
     void openBGM(ActionEvent event) {
-
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/bgm.fxml"));
             loader.setController(new BGMController());
@@ -174,7 +183,6 @@ public class MainController {
         catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void showAlert(String title, Alert.AlertType type, String content){

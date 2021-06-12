@@ -201,21 +201,38 @@ public class Wiki {
 
     public Item searchArmor(int id) {
         armors.sort(Comparator.comparing(Item::getId));
-        int pos = -1;
         int s = 0;
         int e = armors.size() - 1;
-        while (s <= e && pos < 0) {
+        while (s <= e) {
             int mp = (s + e) / 2;
             if (armors.get(mp).getId() == id) {
-                pos = mp;
+                return armors.get(mp);
             } else if (armors.get(mp).getId()  < id) {
                 s = mp + 1;
             } else if (armors.get(mp).getId() > id){
                 e = mp - 1;
             }
         }
-        return armors.get(pos);
+        return null;
     }
+
+    public Monster searchMonsterByID(int id){
+        sortMonstersByID();
+        int s = 0;
+        int e = monsters.size() - 1;
+        while (s <= e) {
+            int mp = (s + e) / 2;
+            if (monsters.get(mp).getId() == id) {
+                return monsters.get(mp);
+            } else if (monsters.get(mp).getId()  < id) {
+                s = mp + 1;
+            } else if (monsters.get(mp).getId() > id){
+                e = mp - 1;
+            }
+        }
+        return null;
+    }
+
 
     public ArrayList<Monster> getMonsters() {
         return monsters;

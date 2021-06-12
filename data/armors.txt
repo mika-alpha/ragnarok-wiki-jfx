@@ -1,2 +1,5 @@
 Valkyrian armor|2357|Body|Neutral|Valkyrie Randgris|assets/items/valkarmor.png
-Valkyrian shield|2115|Shield|Neutral|Valkyrie|assets/items/valkshield.png
+Valkyrian shield 1|1000|Shield|Neutral|Valkyrie|assets/items/valkshield.png
+Valkyrian shield 2|1500|Shield|Neutral|Valkyrie|assets/items/valkshield.png
+Valkyrian shield 3|4500|Shield|Neutral|Valkyrie|assets/items/valkshield.png
+Valkyrian shield 4|500|Shield|Neutral|Valkyrie|assets/items/valkshield.png

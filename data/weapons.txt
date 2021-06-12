@@ -1,2 +1,2 @@
-Elemental sword|13414|One-handed sword|Cobalt Mineral|assets/items/elesword.png
+Elemental sword|13414|One-handed sword|Neutral|Cobalt Mineral|assets/items/elesword.png
 Sandstorm|13035|Dagger|Neutral|Skeleton General|assets/items/sandstorm.jpg
