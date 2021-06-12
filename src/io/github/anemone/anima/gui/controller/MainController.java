@@ -93,10 +93,10 @@ public class MainController {
     @FXML
     void openJobs(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/bgm.fxml"));
-            loader.setController(new BGMController());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/classes.fxml"));
+            loader.setController(new JobsController(wiki));
             Stage stage = new Stage();
-            stage.setTitle("Search Monster");
+            stage.setTitle("Ragnarok Online Jobs");
             stage.setScene(new Scene(loader.load(),1280,720));
             stage.setResizable(false);
             stage.show();

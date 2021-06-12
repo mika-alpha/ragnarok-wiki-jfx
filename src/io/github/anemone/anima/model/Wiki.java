@@ -100,8 +100,8 @@ public class Wiki {
         Job newJob = new Job(name,job,baseLevel,jobLevel,speciality,imgPath);
         if (firstJob == null){
             firstJob = newJob;
-            firstJob.setNext(newJob);
-            firstJob.setPrevious(newJob);
+            firstJob.setNext(firstJob);
+            firstJob.setPrevious(firstJob);
         } else {
             addJob(firstJob,newJob);
         }
@@ -111,9 +111,10 @@ public class Wiki {
         if (current.getNext() != firstJob){
             addJob(current.getNext(),toAdd);
         } else {
-            toAdd.setNext(current.getNext());
-            toAdd.getNext().setPrevious(toAdd);
-            current.setNext(toAdd);
+            toAdd.setPrevious(firstJob.getPrevious());
+            firstJob.getPrevious().setNext(toAdd);
+            toAdd.setNext(firstJob);
+            firstJob.setPrevious(toAdd);
         }
     }
 
