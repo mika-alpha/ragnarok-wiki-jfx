@@ -13,9 +13,6 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Wiki wiki = new Wiki();
         wiki.loadData();
-        wiki.loadJobs();
-        wiki.loadArmors();
-        wiki.loadWeapons();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
         loader.setController(new MainController(wiki));
         primaryStage.setTitle("Ragnarok database - wiki");

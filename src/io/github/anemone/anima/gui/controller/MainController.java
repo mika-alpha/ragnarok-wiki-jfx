@@ -138,15 +138,6 @@ public class MainController {
         }
     }
 
-    @FXML
-    void openMagicSkills(ActionEvent event) {
-
-    }
-
-    @FXML
-    void openPhysicalSkills(ActionEvent event) {
-
-    }
 
     @FXML
     void openSearchMonster(ActionEvent event) {
@@ -165,8 +156,19 @@ public class MainController {
     }
 
     @FXML
-    void openUtilitySkills(ActionEvent event) {
-
+    void openSkills(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/skills.fxml"));
+            loader.setController(new SkillsController(wiki));
+            Stage stage = new Stage();
+            stage.setTitle("Ragnarok Online Skills");
+            stage.setScene(new Scene(loader.load(),1280,720));
+            stage.setResizable(false);
+            stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

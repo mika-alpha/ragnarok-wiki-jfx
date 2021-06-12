@@ -1,0 +1,2 @@
+Asura Strike|Uses all SP to do massive damage to the target, HP/SP will not regenerate naturally for 5 minutes after Asura Strike is used|Offensive|Champion|5|assets/skills/asura.gif
+Acid demonstration|Causes explosion for up to 10 consecutive hits. Target's weapon and armor has a chance to be destroyed|Offensive|Creator|10|assets/skills/aciddemonstration.gif

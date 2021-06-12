@@ -84,6 +84,10 @@ public class Wiki {
         } catch (IOException | ClassNotFoundException ioc){
             ioc.printStackTrace();
         }
+        loadJobs();
+        loadArmors();
+        loadWeapons();
+        loadSkills();
     }
 
     public void saveData(){
@@ -94,6 +98,7 @@ public class Wiki {
         } catch (IOException io){
             io.printStackTrace();
         }
+        System.exit(0);
     }
 
     public void addJob(String name, String job, int baseLevel, int jobLevel, String speciality, String imgPath){
@@ -133,14 +138,30 @@ public class Wiki {
         if (current.getNext() != firstSkill){
             addSkill(current.getNext(),toAdd);
         } else {
-            toAdd.setNext(current.getNext());
-            toAdd.getNext().setPrevious(toAdd);
-            current.setNext(toAdd);
+            toAdd.setPrevious(firstSkill.getPrevious());
+            firstSkill.getPrevious().setNext(toAdd);
+            toAdd.setNext(firstSkill);
+            firstSkill.setPrevious(toAdd);
         }
     }
 
     public void loadSkills(){
-
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("data/skills.txt"));
+            String line = br.readLine();
+            while (line != null) {
+                try {
+                    String[] parts = line.split("\\|");  //FILESEPARATOR = "|"
+                    addSkill(parts[0],parts[1],parts[2],parts[3],Integer.parseInt(parts[4]),parts[5]);
+                    line = br.readLine();
+                } catch (NumberFormatException nf) {
+                    line = br.readLine();
+                }
+            }
+            br.close();
+        } catch (IOException io) {
+            io.printStackTrace();
+        }
     }
 
     public void loadJobs(){
