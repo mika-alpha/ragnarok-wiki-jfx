@@ -7,29 +7,39 @@ import java.io.File;
 
 public class BGMThread extends Thread{
 
-    private String firstSong;
+    private String songPath;
     private MediaPlayer mediaPlayer;
 
-    public BGMThread(String firstSong){
-        this.firstSong = firstSong;
+    public BGMThread(String songPath){
+        this.songPath = songPath;
     }
 
     public void run(){
-        Media hit = new Media(new File(firstSong).toURI().toString());
-        mediaPlayer = new MediaPlayer(hit);
-        mediaPlayer.setVolume(50);
-        mediaPlayer.play();
-    }
-
-    public void updateSong(String songPath, double volume){
         Media hit = new Media(new File(songPath).toURI().toString());
         mediaPlayer = new MediaPlayer(hit);
-        mediaPlayer.setVolume(volume);
         mediaPlayer.play();
     }
 
     public void updateVolume(double volume){
         mediaPlayer.setVolume(volume);
     }
+
+    public void pauseSong(){
+        mediaPlayer.pause();
+    }
+
+    public void resumeSong(){
+        mediaPlayer.play();
+    }
+
+    public void cancel(){
+        mediaPlayer.stop();
+        interrupt();
+    }
+
+    public double getVolume(){
+        return mediaPlayer.getVolume();
+    }
+
 
 }

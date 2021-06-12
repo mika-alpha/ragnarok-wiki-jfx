@@ -10,43 +10,45 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox prefHeight="720.0" prefWidth="1280.0">
+      <VBox prefHeight="600.0" prefWidth="1000.0">
          <children>
-            <HBox prefHeight="420.0" prefWidth="1280.0">
+            <HBox alignment="CENTER" prefHeight="650.0" prefWidth="1280.0">
                <children>
-                  <ImageView fx:id="songImage" fitHeight="420.0" fitWidth="515.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="songImage" fitHeight="453.0" fitWidth="430.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin></ImageView>
                   <VBox prefHeight="420.0" prefWidth="764.0">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="764.0">
                            <children>
                               <Label text="Song's name : ">
                                  <font>
-                                    <Font name="MS Gothic" size="18.0" />
+                                    <Font name="MS Gothic" size="25.0" />
                                  </font>
                               </Label>
                               <Label fx:id="nameLabel">
                                  <font>
-                                    <Font name="MS Gothic" size="14.0" />
+                                    <Font name="MS Gothic" size="18.0" />
                                  </font>
                               </Label>
                            </children>
                            <VBox.margin>
-                              <Insets left="20.0" top="50.0" />
+                              <Insets left="20.0" top="150.0" />
                            </VBox.margin>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="764.0">
                            <children>
                               <Label text="Author : ">
                                  <font>
-                                    <Font name="MS Gothic" size="18.0" />
+                                    <Font name="MS Gothic" size="24.0" />
                                  </font>
                               </Label>
                               <Label fx:id="authorLabel">
                                  <font>
-                                    <Font name="MS Gothic" size="14.0" />
+                                    <Font name="MS Gothic" size="19.0" />
                                  </font>
                               </Label>
                            </children>
@@ -58,17 +60,17 @@
                            <children>
                               <Label text="Volume: ">
                                  <font>
-                                    <Font name="MS Gothic" size="18.0" />
+                                    <Font name="MS Gothic" size="24.0" />
                                  </font>
                               </Label>
-                              <Slider fx:id="volumeSlider" prefHeight="30.0" prefWidth="258.0">
+                              <Slider fx:id="volumeSlider" prefHeight="30.0" prefWidth="258.0" showTickLabels="true" showTickMarks="true">
                                  <HBox.margin>
                                     <Insets left="100.0" />
                                  </HBox.margin>
                               </Slider>
                            </children>
                            <VBox.margin>
-                              <Insets left="20.0" top="60.0" />
+                              <Insets left="20.0" top="40.0" />
                            </VBox.margin>
                         </HBox>
                      </children>
@@ -101,7 +103,7 @@
                         <Insets right="50.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#pauseResumeSong" text="Next">
+                  <Button mnemonicParsing="false" onAction="#nextSong" text="Next">
                      <font>
                         <Font name="MS Gothic" size="18.0" />
                      </font>

@@ -3,6 +3,7 @@ package io.github.anemone.anima.gui.controller;
 import io.github.anemone.anima.exception.FileAccessException;
 import io.github.anemone.anima.model.Wiki;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,6 +12,8 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 
 import java.io.File;
 import java.io.IOException;
@@ -175,11 +178,18 @@ public class MainController {
     void openBGM(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/bgm.fxml"));
-            loader.setController(new BGMController());
+            BGMController bgm = new BGMController(wiki);
+            loader.setController(bgm);
             Stage stage = new Stage();
-            stage.setTitle("Search Monster");
-            stage.setScene(new Scene(loader.load(),1280,720));
+            stage.setTitle("BGM Player");
+            stage.setScene(new Scene(loader.load(),1000,600));
             stage.setResizable(false);
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent event) {
+                    event.consume();
+                }
+            });
             stage.show();
         }
         catch (IOException e) {

@@ -1,0 +1,4 @@
+res/assets/OST/morroc.mp3|Theme of Morroc|SoundTeMP|assets/images/morroc.jpg
+res/assets/OST/gambler.mp3|Gambler of Highway|SoundTeMP|assets/images/default.jpg
+res/assets/OST/payon.mp3|Theme of Payon|SoundTeMP|assets/images/payon.jpg
+res/assets/OST/alberta.mp3|Theme of Alberta|SoundTeMP|assets/images/alberta.jpg

@@ -10,6 +10,7 @@ public class Wiki {
     private ArrayList<Monster> monsters;
     private Skill firstSkill;
     private Job firstJob;
+    private Song firstSong;
     private ItemTree weapons;
     private ArrayList<Item> armors;
     private boolean success;
@@ -88,6 +89,7 @@ public class Wiki {
         loadArmors();
         loadWeapons();
         loadSkills();
+        loadBGM();
     }
 
     public void saveData(){
@@ -255,6 +257,49 @@ public class Wiki {
         return null;
     }
 
+    public void loadBGM(){
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("data/ost.txt"));
+            String line = br.readLine();
+            while (line != null) {
+                try {
+                    String[] parts = line.split("\\|");  //FILESEPARATOR = "|"
+                    addSong(parts[0],parts[1],parts[2],parts[3]);
+                    line = br.readLine();
+                } catch (NumberFormatException nf) {
+                    line = br.readLine();
+                }
+            }
+            br.close();
+        } catch (IOException io) {
+            io.printStackTrace();
+        }
+
+    }
+
+    public void addSong(String songPath, String name, String author, String imgPath){
+        Song toAdd = new Song(songPath,name,author,imgPath);
+        if (firstSong == null){
+            firstSong = toAdd;
+            toAdd.setNext(firstSong);
+            toAdd.setPrevious(firstSong);
+        } else {
+            addSong(firstSong,toAdd);
+        }
+    }
+
+    private void addSong(Song current, Song toAdd){
+        if (current.getNext() != firstSong){
+            addSong(current.getNext(),toAdd);
+        } else {
+            toAdd.setPrevious(firstSong.getPrevious());
+            firstSong.getPrevious().setNext(toAdd);
+            toAdd.setNext(firstSong);
+            firstSong.setPrevious(toAdd);
+        }
+
+    }
+
 
     public ArrayList<Monster> getMonsters() {
         return monsters;
@@ -282,5 +327,9 @@ public class Wiki {
 
     public void setSuccess(boolean value){
         this.success = value;
+    }
+
+    public Song getFirstSong() {
+        return firstSong;
     }
 }
