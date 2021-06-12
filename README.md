@@ -20,7 +20,20 @@ This wiki implements in its code recursive methods, binary search, sorting metho
 You can see a presentation video (in spanish) here: [Presentation video](https://youtu.be/fDYWWym5F6c)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Some screenshots here:
+Some important considerations:
+
+I didn't have enough time to add more monsters, items, skills, jobs nor soundtrack music, that's why it looks so empty, but what's there is enough to prove its functionalities.
+
+Here are some IDs that you can use that are currently in the wiki:
+
+For searching monsters: 1376, 1993, 1713, 4562
+
+For searching armors: 2357, 1500
+
+For searching weapons: 13414, 13035
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+screenshots here:
 
 ![Alt text](screenshots/options.png?raw=true "options")
 ![Alt text](screenshots/jobs.png?raw=true "jobs")
