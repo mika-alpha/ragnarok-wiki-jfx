@@ -17,9 +17,6 @@ This wiki implements in its code recursive methods, binary search, sorting metho
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-You can see a presentation video (in spanish) here: [Presentation video](https://youtu.be/fDYWWym5F6c)
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 Some important considerations:
 
 I didn't have enough time to add more monsters, items, skills, jobs nor soundtrack music, that's why it looks so empty, but what's there is enough to prove its functionalities.
